@@ -1,0 +1,108 @@
+<View style={styles.menu}>
+        <View style={styles.boxMenu}>
+          <TouchableOpacity style={{ height: '100%', width: '20%' }}>
+            <Image style={{ resizeMode: 'contain', width: '70%', height: '70%', marginLeft: '40%', marginTop: '10%' }} source={require('./assets/img/menu-aberto.png')}></Image>
+          </TouchableOpacity>
+          <TouchableOpacity style={{ height: '100%', width: '20%' }} onPress={()=>navigation.navigate('Home')}>
+            <Image style={{ resizeMode: 'contain', width: '70%', height: '70%', marginLeft: '15%', marginTop: '10%' }} source={require('./assets/img/casa.png')}></Image>
+          </TouchableOpacity>
+          <TouchableOpacity style={{ height: '100%', width: '20%' }}>
+            <Image style={{ resizeMode: 'contain', width: '70%', height: '70%', marginRight: '50%', marginTop: '10%' }} source={require('./assets/img/relogio.png')}></Image>
+          </TouchableOpacity>
+        </View>
+      </View>
+
+
+
+
+      <Pilha.Navigator>
+            <Pilha.Screen name='Home' component={TelaInicial} options={{ headerShown: false }}></Pilha.Screen>
+            <Pilha.Screen name='Teste' component={Teste}></Pilha.Screen>
+      </Pilha.Navigator>
+
+      
+  <View>
+    <Text style={{ fontSize: 35, borderRadius: 35, padding: 25, backgroundColor: '#fffaf0', }}>Reparo Asfalto
+    </Text>
+  </View>
+
+  <View>
+          <Text style={{ fontSize: 15, borderRadius: 35, padding: 25, backgroundColor: '#fffaf0', }}>Reparo Asfalto</Text>
+        </View>
+
+
+
+        const styles = StyleSheet.create({
+    main: {
+        height: '110%',
+        backgroundColor: 'white',
+        alignItems: 'center'
+    },
+    login: {
+        height: '90%',
+        width: '80%',
+        backgroundColor: '#e6e6fa',
+        alignItems: 'center',
+        borderRadius: 10,
+        marginTop: '10%',
+        alignSelf: 'center'
+
+
+    },
+    input1: {
+        backgroundColor: 'white',
+        width: '90%',
+        height: 40,
+        borderRadius: 5,
+        marginBottom: '10%'
+    }
+})
+
+
+
+clicou = () => {
+        Alert.alert("App Patense", "Senha com sucesso ");
+    }
+
+
+
+    <ScrollView style={{ height: '100%' }}>
+            <View style={styles.container}>
+                <Text style={{fontSize: 25}}>Criar nova conta</Text>
+                <View style={styles.barra}>
+                    <Text style={styles.nome}>Nome:</Text>
+                    <TextInput
+                        style={styles.input}
+                        placeholder='Digite seu Nome'
+                        autoCapitalize='words'
+                        onChangeText={(value)=>setName(value)}
+                    />
+                    <Text style={styles.nome}>Email:</Text>
+                    <TextInput
+                        style={styles.input}
+                        placeholder='Digite seu Email'
+                        keyboardType='email-address'
+                        autoCapitalize='none'
+                        onChangeText={(value)=>setEmail(value)}
+                    />
+                    <Text style={styles.nome}>Senha:</Text>
+                    <TextInput
+                        style={styles.input}
+                        secureTextEntry={true}
+                        placeholder='Digite sua Senha'
+                        onChangeText={(value)=>setPassword(value)}
+                    />
+                    <Text style={styles.nome}>Data de nascimento:</Text>
+                    <TextInput style={styles.input}
+                    placeholder='dd/mm/aaaa'
+                    onChangeText={(value)=>setData(value)}
+                    />
+                    <TouchableOpacity
+                        style={styles.botao}
+                        onPress={() => entrar(auth, email, password)}>
+                        <Text style={styles.botaoText}>Cadastrar</Text>
+                    </TouchableOpacity>
+                    <StatusBar style="auto" />
+                </View>
+            </View>
+        </ScrollView>
