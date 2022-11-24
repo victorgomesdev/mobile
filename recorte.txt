@@ -106,3 +106,25 @@ clicou = () => {
                 </View>
             </View>
         </ScrollView>
+
+
+
+        <Text style={{ marginLeft: 16, width: '100%', fontSize: 19, marginTop: '8%' }}>E-mail:</Text>
+                    <TextInput style={styles.input1}
+                        placeholder=' Digite seu e-mail'
+                        keyboardType='email-address'
+                        autoCapitalize='none'
+                        onChangeText={value => setEmail(value)}
+                    ></TextInput>
+                    <Text style={{ marginLeft: 16, width: '100%', fontSize: 19 }}>Senha:</Text>
+                    <TextInput style={styles.input1}
+                        placeholder=' Digite sua senha'
+                        secureTextEntry={true}
+                        onChangeText={value => setPassword(value)}/>                        
+                    <TouchableOpacity style={{ backgroundColor: '#00BFFF', padding: 10, borderRadius: 10, width: '40%', marginLeft: '30%' }} onPress={() => entrar(auth, email, password)}>
+                        <Text style={{textAlign: 'center', color: 'white', fontWeight: 'bold'}}>Fazer login</Text>
+                    </TouchableOpacity>
+                    <Text style={{ margin: 10, textAlign: 'center' }}>ou</Text>
+                    <TouchableOpacity style={{ backgroundColor: '#00BFFF', padding: 10, borderRadius: 10, width: '40%', marginLeft: '30%' }} onPress={() => navigation.navigate('Cadastro')}>
+                        <Text style={{textAlign: 'center', color: 'white', fontWeight: 'bold'}}>Cadastrar-se</Text>
+                    </TouchableOpacity>

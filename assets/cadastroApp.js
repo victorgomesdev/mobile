@@ -32,13 +32,6 @@ export default function Cadastro({ navigation }) {
             })
 
     }
-/*if (error.message == 'Firebase: Error (auth/email-already-in-use).') {
-                    Alert.alert('Este e-mail já está em uso, tente outro!')
-                }
-                if (error.message == 'Firebase: Error (auth/invalid-email).') {
-                    Alert.alert('E-mail inválido!')
-                }
-                else (Alert.alert('Senha muito curta!'))* */
     return (
         <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
             <ScrollView style={{ backgroundColor: 'white' }}>

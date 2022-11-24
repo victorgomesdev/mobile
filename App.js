@@ -5,7 +5,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 //************************Telas do App********************************/
-import Solicitacoes from './assets/solicitacoes.js';
 import Menu from './assets/menu.js';
 import Asfalto from './assets/asfalto'
 import Onibus from './assets/onibus'
@@ -31,7 +30,6 @@ export default function App() {
     <NavigationContainer>
       <Pilha.Navigator initialRouteName='Login' >
         <Pilha.Screen name='Home' component={TelaInicial} options={{ headerShown: false }}></Pilha.Screen>
-        <Pilha.Screen name='Solicitações' component={Solicitacoes}></Pilha.Screen>
         <Pilha.Screen name='Menu' component={Menu}></Pilha.Screen>
         <Pilha.Screen name='Reparo no asfalto' component={Asfalto}></Pilha.Screen>
         <Pilha.Screen name='Reparo em pontos de ônibus' component={Onibus} options={{ headerTitleStyle: { fontSize: 17 } }}></Pilha.Screen>
@@ -128,14 +126,8 @@ function TelaInicial({ navigation }) {
       </View>
       <View style={styles.menu}>
         <View style={styles.boxMenu}>
-          <TouchableOpacity style={{ height: '100%', width: '20%' }} onPress={() => navigation.navigate('Perfil')}>
-            <Image style={{ resizeMode: 'contain', width: '70%', height: '70%', marginLeft: '40%', marginTop: '10%' }} source={require('./assets/img/menu-aberto.png')}></Image>
-          </TouchableOpacity>
-          <TouchableOpacity style={{ height: '100%', width: '20%' }} onPress={() => navigation.navigate('Home')}>
-            <Image style={{ resizeMode: 'contain', width: '70%', height: '70%', marginLeft: '15%', marginTop: '10%' }} source={require('./assets/img/casa.png')}></Image>
-          </TouchableOpacity>
-          <TouchableOpacity style={{ height: '100%', width: '20%' }} onPress={() => navigation.navigate('Solicitações')}>
-            <Image style={{ resizeMode: 'contain', width: '70%', height: '70%', marginRight: '50%', marginTop: '10%' }} source={require('./assets/img/relogio.png')}></Image>
+          <TouchableOpacity style={{ height: '100%', width: '100%' }} onPress={() => navigation.navigate('Perfil')}>
+            <Image style={{ resizeMode: 'contain', width: '70%', height: '70%', marginLeft: '15%', marginTop: '2%' }} source={require('./assets/img/menu-aberto.png')}></Image>
           </TouchableOpacity>
         </View>
       </View>

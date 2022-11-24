@@ -31,7 +31,7 @@ export default function Login({ navigation }) {
     return (
         <TouchableWithoutFeedback onPress={()=>Keyboard.dismiss()}>
             <View style={styles.main}>
-            <Text style={{ marginTop: '25%', fontSize: 30, marginBottom: '5%' }}>Login</Text>
+            <Text style={{ marginTop: '17%', fontSize: 30, marginBottom: '5%' }}>Login</Text>
             <View style={styles.login}>
                 <ScrollView style={{height: '100%', width: '90%', }}>
                     <Text style={{ marginLeft: 16, width: '100%', fontSize: 19, marginTop: '8%' }}>E-mail:</Text>
