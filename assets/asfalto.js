@@ -12,6 +12,7 @@ export default function ImagePickerExample({ navigation }) {
   const [nome, setNome] = useState(null)
   const [desc, setDesc] = useState(null)
   const [email, setEmail] = useState(null)
+  const [message,setMessage]= useState(null)
 
   const buscarEmail = async () => {
     const valor = await AsyncStorage.getItem('EMAIL')
@@ -35,6 +36,10 @@ export default function ImagePickerExample({ navigation }) {
         email: email
       })
     })
+    const resposta = await req.json()
+    if(resposta){
+      Alert.alert(resposta)
+    }
   }
 
   const [image, setImage] = useState(null);
@@ -53,8 +58,9 @@ export default function ImagePickerExample({ navigation }) {
   };
 
   return (
-
+    
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+      
       <ScrollView>
         <View style={{ alignItems: 'center', justifyContent: 'center', padding: 25 }}>
           <View style={{ backgroundColor: '#1981C1', margin: 10, borderRadius: 10 }}>
