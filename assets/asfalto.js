@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Image, View, Text, TextInput, TouchableOpacity, ScrollView, TouchableWithoutFeedback, Keyboard, Alert } from 'react-native';
+import { Image, View, Text, TextInput, TouchableOpacity, ScrollView, TouchableWithoutFeedback, Keyboard, Alert, ActivityIndicator } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import url from '../config/url';
 
 export default function ImagePickerExample({ navigation }) {
 
@@ -12,7 +13,7 @@ export default function ImagePickerExample({ navigation }) {
   const [nome, setNome] = useState(null)
   const [desc, setDesc] = useState(null)
   const [email, setEmail] = useState(null)
-  const [message,setMessage]= useState(null)
+  const [message, setMessage] = useState(null)
 
   const buscarEmail = async () => {
     const valor = await AsyncStorage.getItem('EMAIL')
@@ -21,7 +22,7 @@ export default function ImagePickerExample({ navigation }) {
   buscarEmail()
 
   async function enviarDados() {
-    const req = await fetch('http://192.168.1.101:3000/create', {
+    const req = await fetch(url + '/create', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -37,9 +38,11 @@ export default function ImagePickerExample({ navigation }) {
       })
     })
     const resposta = await req.json()
-    if(resposta){
+    if (resposta) {
       Alert.alert(resposta)
+      navigation.navigate('Home')
     }
+
   }
 
   const [image, setImage] = useState(null);
@@ -58,15 +61,15 @@ export default function ImagePickerExample({ navigation }) {
   };
 
   return (
-    
+
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-      
+
       <ScrollView>
         <View style={{ alignItems: 'center', justifyContent: 'center', padding: 25 }}>
           <View style={{ backgroundColor: '#1981C1', margin: 10, borderRadius: 10 }}>
             <Image style={{ resizeMode: 'contain', width: 100, height: 100, margin: 10 }} source={require('../assets/img/carro-esporte.png')}></Image>
           </View>
-          <View style={{ flexDirection: 'row'}}>
+          <View style={{ flexDirection: 'row' }}>
             <Text style={{ color: 'red' }}>*</Text>
             <Text style={{ fontStyle: 'italic', fontSize: 12 }}>Preencha todos os campos.</Text>
           </View>

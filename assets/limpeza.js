@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Image, View, Platform, Text, TextInput, TouchableOpacity, ScrollView, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { Button, Image, View, Platform, Text, TextInput, TouchableOpacity, ScrollView, TouchableWithoutFeedback, Keyboard, Alert } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -10,9 +10,16 @@ export default function ImagePickerExample({ navigation }) {
   const [bairro, setBairro] = useState(null)
   const [nome, setNome] = useState(null)
   const [desc, setDesc] = useState(null)
+  const [email,setEmail] = useState(null)
+
+  const buscarEmail = async () => {
+    const valor = await AsyncStorage.getItem('EMAIL')
+    setEmail(valor)
+  }
+  buscarEmail()
 
   async function enviarDados() {
-    const req = await fetch('http://192.168.1.101:3000/create', {
+    const req = await fetch(url + '/create', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -27,6 +34,11 @@ export default function ImagePickerExample({ navigation }) {
         email: email
       })
     })
+    const resposta = await req.json()
+    if (resposta) {
+      Alert.alert(resposta)
+      navigation.navigate('Home')
+    }
   }
 
   const [image, setImage] = useState(null);
@@ -87,29 +99,10 @@ export default function ImagePickerExample({ navigation }) {
               autoCapitalize='words'
               onChangeText={(value) => setNome(value)} />
           </View>
-          <Text style={{ fontSize: 20, borderRadius: 35, marginBottom: 7, marginTop: 20, width: "100%", }}>O que está Acontecendo ?</Text>
-          <TextInput style={{ marginTop: 2, padding: 6, height: 100, width: "100%", backgroundColor: '#fffaf0', fontSize: 16, borderRadius: 10 }}
+          <Text style={{ fontSize: 20, borderRadius: 35, marginBottom: 7, marginTop: 20, width: "100%", }}>O que está acontecendo ?</Text>
+          <TextInput style={{ marginTop: 2, padding: 6, height: 100, width: "100%", backgroundColor: '#fffaf0', fontSize: 16, borderRadius: 10,  marginBottom: '5%' }}
             placeholder='Detalhe o problema'
             onChangeText={(value) => setDesc(value)} />
-          <View style={{ backgroundColor: '#fffaf0', borderRadius: 10, margin: 10 }}>
-            <Text style={{ fontSize: 18, borderRadius: 35, padding: 25, width: "100%", textAlign: 'center' }}>Adicione uma foto</Text>
-            <TouchableOpacity style={{
-              fontSize: 20,
-              borderRadius: 35,
-              padding: 15,
-              width: '40%',
-              alignSelf: 'center'
-            }} title="Galeria de Fotos" onPress={pickImage} >
-              <Icon style={{}} name='camera' size={55} />
-            </TouchableOpacity>
-
-            <Text style={{ alignSelf: 'center' }}>Imagem selecionada:</Text>
-            {image && <Image source={{ uri: image }} style={{ width: 75, height: 75, alignSelf: 'center', margin: 5 }}
-              onPress={() => navigation.navigate("Home")}
-            />}
-          </View>
-
-
           <TouchableOpacity
             style={{
               backgroundColor: '#00BFFF',

@@ -34,8 +34,8 @@ export default function Cadastro({ navigation }) {
     }
     return (
         <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-            <ScrollView style={{ backgroundColor: 'white' }}>
-                <Text style={{ textAlign: 'center', fontSize: 25, marginTop: '20%' }}>Criar nova conta</Text>
+            <ScrollView style={{ backgroundColor: 'white', height: '100%' }}>
+                <Text style={{ textAlign: 'center', fontSize: 25, marginTop: '50%' }}>Criar nova conta</Text>
                 <View style={{ height: 380, width: "90%", alignSelf: 'center', padding: 5, backgroundColor: '#e6e6fa', borderRadius: 10, justifyContent: 'space-around', alignItems: 'center' }}>
                     <Text style={{ alignSelf: 'flex-start', marginLeft: '5%', marginTop: '5%' }}>Email:</Text>
                     <TextInput

@@ -20,6 +20,7 @@ app.post('/create', async (req, res) => {
         "updatedAt": new Date(),
         "id_status": "1"
     })
+    res.send(JSON.stringify("Solicitação enviada com sucesso!"))
 })
 
 const port = process.env.PORT || 3000

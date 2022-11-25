@@ -34,7 +34,7 @@ export default function Login({ navigation }) {
             <Text style={{ marginTop: '17%', fontSize: 30, marginBottom: '5%' }}>Login</Text>
             <View style={styles.login}>
                 <ScrollView style={{height: '100%', width: '90%', }}>
-                    <Text style={{ marginLeft: 16, width: '100%', fontSize: 19, marginTop: '8%' }}>E-mail:</Text>
+                    <Text style={{ marginLeft: 16, width: '100%', fontSize: 19, marginTop: '25%' }}>E-mail:</Text>
                     <TextInput style={styles.input1}
                         placeholder=' Digite seu e-mail'
                         keyboardType='email-address'

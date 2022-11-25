@@ -19,7 +19,7 @@ export default function ImagePickerExample({ navigation }) {
   buscarEmail()
 
   async function enviarDados() {
-    const req = await fetch('http://192.168.1.102:3000/create', {
+    const req = await fetch(url + '/create', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -34,6 +34,11 @@ export default function ImagePickerExample({ navigation }) {
         email: email
       })
     })
+    const resposta = await req.json()
+    if (resposta) {
+      Alert.alert(resposta)
+      navigation.navigate('Home')
+    }
   }
   const [image, setImage] = useState(null);
   const pickImage = async () => {
@@ -90,23 +95,11 @@ export default function ImagePickerExample({ navigation }) {
               autoCapitalize='words'
               onChangeText={(value) => setNome(value)} />
           </View>
-          <Text style={{ fontSize: 20, borderRadius: 35, marginBottom: 7, marginTop: 20, width: "100%", }}>O que está Acontecendo ?</Text>
-          <TextInput style={{ marginTop: 2, padding: 6, height: 100, width: "100%", backgroundColor: '#fffaf0', fontSize: 16, borderRadius: 10 }}
+          <Text style={{ fontSize: 20, borderRadius: 35, marginBottom: 7, marginTop: 20, width: "100%", }}>O que está acontecendo ?</Text>
+          <TextInput style={{ marginTop: 2, padding: 6, height: 100, width: "100%", backgroundColor: '#fffaf0', fontSize: 16, borderRadius: 10,  marginBottom: '5%' }}
             placeholder='Detalhe o problema'
             onChangeText={(value) => setDesc(value)} />
-          <View style={{ backgroundColor: '#fffaf0', borderRadius: 10, margin: 10 }}>
-            <Text style={{ fontSize: 18, borderRadius: 35, padding: 25, width: "100%", textAlign: 'center' }}>Adicione uma foto</Text>
-            <TouchableOpacity style={{
-              fontSize: 20,
-              borderRadius: 35,
-              padding: 15,
-              width: '40%',
-              alignSelf: 'center'
-            }} title="Galeria de Fotos" onPress={pickImage} >
-              <Icon style={{}} name='camera' size={55} />
-            </TouchableOpacity>
-          </View>
-
+          
           {image && <Image source={{ uri: image }} style={{ width: 50, height: 50 }}
             OnPress={() => navigation.navigate("Home")}
           />}
