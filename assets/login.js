@@ -41,7 +41,7 @@ export default function Login({ navigation }) {
                         autoCapitalize='none'
                         onChangeText={value => setEmail(value)}
                     ></TextInput>
-                    <Text style={{ marginLeft: 16, width: '100%', fontSize: 19 }}>Senha:</Text>
+                    <Text style={{ marginLeft: 16, width: '100%', fontSize: 19, marginTop: '10%' }}>Senha:</Text>
                     <TextInput style={styles.input1}
                         placeholder=' Digite sua senha'
                         secureTextEntry={true}
@@ -84,6 +84,7 @@ const styles = StyleSheet.create({
         height: 40,
         borderRadius: 5,
         marginBottom: '5%',
-        marginLeft: '5%'
+        marginLeft: '5%',
+        marginTop: '5%'
     }
 })

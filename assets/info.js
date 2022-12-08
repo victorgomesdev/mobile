@@ -11,7 +11,7 @@ export default function Info({ navigation }) {
                 <Text style={{fontSize: 15, fontStyle: 'italic' }}>Copyright-2022</Text>
                 <Text style={{fontSize: 15 }}>PI-2</Text>
                 <TouchableOpacity style={{ width: '40%',
-                height: '15%', backgroundColor: 'white',
+                height: '10%', backgroundColor: 'white',
                 marginTop: '5%', borderRadius: 10,
                 alignItems: 'center',
                 justifyContent: 'center'}}
