@@ -126,8 +126,8 @@ function TelaInicial({ navigation }) {
       </View>
       <View style={styles.menu}>
         <View style={styles.boxMenu}>
-          <TouchableOpacity style={{ height: '100%', width: '100%' }} onPress={() => navigation.navigate('Perfil')}>
-            <Image style={{ resizeMode: 'contain', width: '70%', height: '70%', marginLeft: '15%', marginTop: '2%' }} source={require('./assets/img/menu-aberto.png')}></Image>
+          <TouchableOpacity style={{ height: '100%', width: '10%' }} onPress={() => navigation.navigate('Perfil')}>
+            <Image style={{ resizeMode: 'contain', width: '100%', height: '100%', marginLeft: '15%', marginTop: '2%' }} source={require('./assets/img/menu-aberto.png')}></Image>
           </TouchableOpacity>
         </View>
       </View>
@@ -246,7 +246,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignItems: 'center',
     height: '100%',
     width: '100%'
