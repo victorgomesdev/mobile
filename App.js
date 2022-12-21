@@ -18,6 +18,7 @@ import Ponte from './assets/pontes'
 import Cadastro from './assets/cadastroApp'
 import Login from './assets/login'
 import Info from './assets/info'
+import Teste from './teste.js';
 
 //********************************************************************/
 //Função de navegação
@@ -28,7 +29,7 @@ const Pilha = createNativeStackNavigator()
 export default function App() {
   return (
     <NavigationContainer>
-      <Pilha.Navigator initialRouteName='Login' >
+      <Pilha.Navigator initialRouteName='Home' >
         <Pilha.Screen name='Home' component={TelaInicial} options={{ headerShown: false }}></Pilha.Screen>
         <Pilha.Screen name='Menu' component={Menu}></Pilha.Screen>
         <Pilha.Screen name='Reparo no asfalto' component={Asfalto}></Pilha.Screen>
@@ -43,6 +44,7 @@ export default function App() {
         <Pilha.Screen name='Cadastro' component={Cadastro} options={{ headerShown: false }}></Pilha.Screen>
         <Pilha.Screen name='Login' component={Login} options={{ headerShown: false }}></Pilha.Screen>
         <Pilha.Screen name='Perfil' component={Info} options={{ headerShown: false }}></Pilha.Screen>
+        <Pilha.Screen name='Lista' component={Teste} options={{ headerShown: false }}></Pilha.Screen>
       </Pilha.Navigator>
     </NavigationContainer>
   );
@@ -126,8 +128,11 @@ function TelaInicial({ navigation }) {
       </View>
       <View style={styles.menu}>
         <View style={styles.boxMenu}>
-          <TouchableOpacity style={{ height: '100%', width: '10%' }} onPress={() => navigation.navigate('Perfil')}>
-            <Image style={{ resizeMode: 'contain', width: '100%', height: '100%', marginLeft: '15%', marginTop: '2%' }} source={require('./assets/img/menu-aberto.png')}></Image>
+          <TouchableOpacity style={{ height: '100%', width: '15%', justifyContent: 'center' }} onPress={() => navigation.navigate('Perfil')}>
+            <Text style={{fontSize: 15, marginBottom: 5}}>Sobre</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={{justifyContent: 'center'}} onPress={()=> navigation.navigate('Teste')}>
+            <Text style={{fontSize: 15, marginBottom: 5}}>Minhas solicitações</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -246,7 +251,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
     alignItems: 'center',
     height: '100%',
     width: '100%'

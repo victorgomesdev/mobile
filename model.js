@@ -53,11 +53,11 @@ const Ocorrencia = sequelize.define('ocorrencias', {
     tableName: 'ocorrencias',
 })
 
-async function sincronizacao() {
+/*async function sincronizacao() { 
     await Ocorrencia.sync({alter: true}).
         then(console.log('SINCRONIZADO')).
         catch(error => console.log(error.message))
 }
 sincronizacao()
-
+*/
 module.exports = Ocorrencia
