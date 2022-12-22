@@ -18,7 +18,7 @@ import Ponte from './assets/pontes'
 import Cadastro from './assets/cadastroApp'
 import Login from './assets/login'
 import Info from './assets/info'
-import Teste from './teste.js';
+import Lista from './lista';
 
 //********************************************************************/
 //Função de navegação
@@ -29,7 +29,7 @@ const Pilha = createNativeStackNavigator()
 export default function App() {
   return (
     <NavigationContainer>
-      <Pilha.Navigator initialRouteName='Home' >
+      <Pilha.Navigator initialRouteName='Login'>
         <Pilha.Screen name='Home' component={TelaInicial} options={{ headerShown: false }}></Pilha.Screen>
         <Pilha.Screen name='Menu' component={Menu}></Pilha.Screen>
         <Pilha.Screen name='Reparo no asfalto' component={Asfalto}></Pilha.Screen>
@@ -44,7 +44,7 @@ export default function App() {
         <Pilha.Screen name='Cadastro' component={Cadastro} options={{ headerShown: false }}></Pilha.Screen>
         <Pilha.Screen name='Login' component={Login} options={{ headerShown: false }}></Pilha.Screen>
         <Pilha.Screen name='Perfil' component={Info} options={{ headerShown: false }}></Pilha.Screen>
-        <Pilha.Screen name='Lista' component={Teste} options={{ headerShown: false }}></Pilha.Screen>
+        <Pilha.Screen name='Lista' component={Lista} options={{ headerShown: false }}></Pilha.Screen>
       </Pilha.Navigator>
     </NavigationContainer>
   );
@@ -57,12 +57,12 @@ function TelaInicial({ navigation }) {
       <StatusBar backgroundColor='white' barStyle='dark-content' />
       <View style={styles.header}>
         <Image style={{ width: 70, height: 50, marginLeft: 10 }} source={require('./assets/logo.png')}></Image>
-        <Text style={{fontWeight: 'bold', marginRight: '5%',}}>Prefeitura de Patos de Minas</Text>
+        <Text style={{ fontWeight: 'bold', marginRight: '5%', }}>Prefeitura de Patos de Minas</Text>
       </View>
       <View style={styles.main}>
         <ScrollView style={styles.scroll}>
           <View style={styles.scr}>
-            <Text style={{alignSelf: 'center', fontStyle: 'italic', fontWeight: '100'}}>Qual serviço você procura?</Text>
+            <Text style={{ alignSelf: 'center', fontStyle: 'italic', fontWeight: '100' }}>Qual serviço você procura?</Text>
             <View style={styles.row}>
               <TouchableOpacity style={styles.boxOnibus} onPress={() => navigation.navigate('Reparo em pontos de ônibus')}>
                 <Image style={styles.img} source={require('./assets/img/frente-do-onibus.png')}></Image>
@@ -129,10 +129,13 @@ function TelaInicial({ navigation }) {
       <View style={styles.menu}>
         <View style={styles.boxMenu}>
           <TouchableOpacity style={{ height: '100%', width: '15%', justifyContent: 'center' }} onPress={() => navigation.navigate('Perfil')}>
-            <Text style={{fontSize: 15, marginBottom: 5}}>Sobre</Text>
+            <Image style={{ resizeMode: 'contain', width: '90%', height: '90%', marginBottom: 5 }} source={require('./assets/img/menu-aberto.png')}></Image>
           </TouchableOpacity>
-          <TouchableOpacity style={{justifyContent: 'center'}} onPress={()=> navigation.navigate('Teste')}>
-            <Text style={{fontSize: 15, marginBottom: 5}}>Minhas solicitações</Text>
+          <TouchableOpacity style={{ height: '100%', width: '15%', justifyContent: 'center' }} onPress={() => navigation.navigate('Home')}>
+            <Image style={{ resizeMode: 'contain', width: '90%', height: '90%', marginBottom: 5 }} source={require('./assets/img/casa.png')}></Image>
+          </TouchableOpacity>
+          <TouchableOpacity style={{ height: '100%', width: '15%', justifyContent: 'center' }} onPress={() => navigation.navigate('Lista')}>
+            <Image style={{ resizeMode: 'contain', width: '90%', height: '90%', marginBottom: 5 }} source={require('./assets/img/relogio.png')}></Image>
           </TouchableOpacity>
         </View>
       </View>
@@ -186,7 +189,7 @@ const styles = StyleSheet.create({
     height: 80
   },
   //estilo dos botões
-  img:{
+  img: {
     width: '45%',
     height: '45%',
     resizeMode: 'contain',
